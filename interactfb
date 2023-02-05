@@ -1,0 +1,16 @@
+import requests
+
+# Your Facebook Access Token
+access_token = "your-access-token"
+
+# The ID of the Facebook Page you want to retrieve information about
+page_id = "page-id"
+
+# Make a GET request to the Facebook Graph API
+response = requests.get(f"https://graph.facebook.com/{page_id}?fields=name,about,likes&access_token={access_token}")
+
+# Parse the JSON data returned by the API
+page_data = response.json()
+
+# Print the name and number of likes of the Facebook Page
+print(page_data['name'], page_data['likes'])
